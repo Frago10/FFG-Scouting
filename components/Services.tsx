@@ -23,9 +23,7 @@ export default function Services() {
               </span>
             </div>
             <h2 className="font-serif text-5xl md:text-7xl leading-[0.9] tracking-tightest">
-              {t.services.title1}
-              <br />
-              <span className="italic text-cream/70">{t.services.title2}</span>
+              <span className="italic text-shimmer">{t.services.title1}</span>
             </h2>
           </div>
           <div className="md:col-span-4 md:col-start-9 flex md:items-end">
@@ -52,38 +50,29 @@ export default function Services() {
               )}
 
               <div className="flex items-center justify-between mb-6">
-                <span className="font-mono text-[10px] uppercase tracking-ultrawide text-gold">
+                <span className="font-serif text-shimmer text-4xl tabular leading-none">
                   {s.k}
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
-                  {t.services.currency}
+                  0{i + 1} / 04
                 </span>
               </div>
 
-              <div className="font-serif text-xl md:text-2xl text-cream leading-tight mb-5 min-h-[60px]">
+              <div className="font-serif text-2xl md:text-3xl text-cream leading-tight mb-3 min-h-[70px]">
                 {s.t}
               </div>
 
-              <div className="mb-2">
-                <span
-                  className={`font-serif text-4xl md:text-5xl tabular leading-none ${
-                    s.best ? "text-shimmer" : "text-cream"
-                  }`}
-                >
-                  {s.price}
-                </span>
-              </div>
-              <div className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted mb-6">
+              <div className="font-mono text-[10px] uppercase tracking-ultrawide text-gold mb-6 pb-6 border-b border-ink-line">
                 {s.unit}
               </div>
 
-              <p className="text-cream/70 text-sm leading-relaxed mb-6 flex-1">
+              <p className="text-cream/70 text-sm leading-relaxed mb-8 flex-1">
                 {s.d}
               </p>
 
               <a
                 href="#contact"
-                className={`group/btn inline-flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-ultrawide border px-4 py-3 transition-colors ${
+                className={`group/btn inline-flex items-center justify-between gap-3 font-mono text-[10px] uppercase tracking-ultrawide border px-4 py-3 transition-colors mt-auto ${
                   s.best
                     ? "border-gold bg-gold text-ink-deep hover:bg-cream hover:border-cream"
                     : "border-cream/30 text-cream hover:border-gold hover:text-gold"

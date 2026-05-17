@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
 
 const memberImage: Record<string, string> = {
-  malcom: "/images/portrait.webp",
+  malcom: "/images/malcom-founder.jpg",
   "advisor-2": "/images/spain.jpg",
   "advisor-3": "/images/usa-greenville.jpg"
 };
@@ -80,7 +80,7 @@ export default function Staff() {
               <img
                 src={memberImage[founder.id]}
                 alt={founder.name}
-                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1.5s] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover object-[38%_center] transition-transform duration-[1.5s] group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-ink-deep/40 via-transparent to-transparent" />
 
@@ -246,9 +246,9 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
         <div className="relative grid md:grid-cols-12 gap-px bg-ink-line border-b border-ink-line">
           <div className="md:col-span-5 relative aspect-[3/4] md:aspect-auto md:min-h-[600px] bg-ink-deep overflow-hidden">
             <img
-              src="/images/portrait.webp"
+              src="/images/malcom-founder.jpg"
               alt="Malcom Frago"
-              className="absolute inset-0 h-full w-full object-cover object-center"
+              className="absolute inset-0 h-full w-full object-cover object-[38%_center]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-transparent to-transparent" />
           </div>

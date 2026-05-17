@@ -138,40 +138,35 @@ export const dict = {
     },
     services: {
       section: "Section 05 · Services",
-      title1: "Engagements,",
-      title2: "honestly priced.",
-      sub: "Transparent pricing because clarity is the product. Every engagement starts with the Assessment.",
-      currency: "EUR",
+      title1: "Services.",
+      title2: "",
+      sub: "Every engagement starts with the Assessment. Pricing is shared once we understand your situation.",
       items: [
         {
           k: "S1",
           t: "Athlete Path Assessment",
-          price: "400€",
-          unit: "30–40 min",
-          d: "The diagnostic. Honest read of level, market fit and realistic next steps.",
+          unit: "Diagnostic · 30–40 min",
+          d: "The diagnostic call. Honest read of level, market fit and realistic next steps.",
           best: false
         },
         {
           k: "S2",
           t: "Career Path Advisory",
-          price: "350–500€",
-          unit: "/ month · min. 3 months",
+          unit: "Continuous · min. 3 months",
           d: "Continuous advisory over a horizon. Monthly check-ins, decision support, market intel.",
           best: true
         },
         {
           k: "S3",
           t: "USA Athlete Path Program",
-          price: "3.000–4.000€",
-          unit: "full pathway",
+          unit: "Full pathway",
           d: "Full-spectrum path to U.S. collegiate / pro: positioning, school targeting, NCAA navigation.",
           best: false
         },
         {
           k: "S4",
           t: "Private Advisory",
-          price: "from 1.500€",
-          unit: "bespoke",
+          unit: "Bespoke engagement",
           d: "Confidential engagement for elite individual cases. Scope built around the athlete.",
           best: false
         }
@@ -479,40 +474,35 @@ export const dict = {
     },
     services: {
       section: "Sección 05 · Servicios",
-      title1: "Servicios,",
-      title2: "precios honestos.",
-      sub: "Precios transparentes porque la claridad es el producto. Toda colaboración empieza con el Assessment.",
-      currency: "EUR",
+      title1: "Servicios.",
+      title2: "",
+      sub: "Toda colaboración empieza con el Assessment. El precio se comparte cuando entendemos tu situación.",
       items: [
         {
           k: "S1",
           t: "Athlete Path Assessment",
-          price: "400€",
-          unit: "30–40 min",
-          d: "El diagnóstico. Lectura honesta de nivel, encaje de mercado y próximos pasos realistas.",
+          unit: "Diagnóstico · 30–40 min",
+          d: "La llamada diagnóstica. Lectura honesta de nivel, encaje de mercado y próximos pasos realistas.",
           best: false
         },
         {
           k: "S2",
           t: "Career Path Advisory",
-          price: "350–500€",
-          unit: "/ mes · mín. 3 meses",
+          unit: "Continuo · mín. 3 meses",
           d: "Asesoría continua sobre un horizonte. Revisiones mensuales, soporte de decisiones, inteligencia de mercado.",
           best: true
         },
         {
           k: "S3",
           t: "USA Athlete Path Program",
-          price: "3.000–4.000€",
-          unit: "camino completo",
+          unit: "Camino completo",
           d: "Ruta completa al sistema universitario / pro de EE. UU.: posicionamiento, selección de universidad, navegación NCAA.",
           best: false
         },
         {
           k: "S4",
           t: "Asesoría Privada",
-          price: "desde 1.500€",
-          unit: "a medida",
+          unit: "Encargo a medida",
           d: "Encargo confidencial para casos individuales de élite. Alcance diseñado alrededor del atleta.",
           best: false
         }
