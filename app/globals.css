@@ -101,6 +101,53 @@ html, body {
   );
 }
 
+/* Hero gold-dust background — pure CSS, infinitely sharp */
+.hero-gold-bg {
+  background-color: #050505;
+  background-image:
+    /* warm gold glow upper-left */
+    radial-gradient(70% 60% at 18% 28%, rgba(233, 211, 154, 0.22), transparent 60%),
+    /* softer champagne glow upper-right */
+    radial-gradient(55% 45% at 82% 18%, rgba(201, 169, 106, 0.18), transparent 65%),
+    /* deep gold accent lower-right */
+    radial-gradient(45% 55% at 78% 82%, rgba(138, 115, 64, 0.22), transparent 60%),
+    /* low-left subtle bloom */
+    radial-gradient(40% 40% at 15% 85%, rgba(201, 169, 106, 0.12), transparent 70%),
+    /* center darkness for legibility */
+    radial-gradient(90% 90% at 50% 55%, transparent 30%, rgba(0, 0, 0, 0.55) 100%),
+    /* base vignette */
+    linear-gradient(180deg, #0a0a0a 0%, #050505 50%, #000000 100%);
+}
+
+/* Layered gold-dust particles overlay (SVG) */
+.hero-gold-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><defs><radialGradient id='d' cx='50%25' cy='50%25' r='50%25'><stop offset='0%25' stop-color='%23e9d39a' stop-opacity='0.9'/><stop offset='100%25' stop-color='%23e9d39a' stop-opacity='0'/></radialGradient></defs><g><circle cx='120' cy='80' r='1.8' fill='url(%23d)'/><circle cx='240' cy='150' r='1.2' fill='url(%23d)'/><circle cx='360' cy='60' r='2' fill='url(%23d)'/><circle cx='510' cy='110' r='1.4' fill='url(%23d)'/><circle cx='640' cy='200' r='2.2' fill='url(%23d)'/><circle cx='720' cy='90' r='1.6' fill='url(%23d)'/><circle cx='60' cy='250' r='1.5' fill='url(%23d)'/><circle cx='180' cy='320' r='2' fill='url(%23d)'/><circle cx='300' cy='280' r='1.2' fill='url(%23d)'/><circle cx='440' cy='340' r='2.4' fill='url(%23d)'/><circle cx='560' cy='300' r='1.6' fill='url(%23d)'/><circle cx='680' cy='380' r='1.8' fill='url(%23d)'/><circle cx='90' cy='430' r='1.4' fill='url(%23d)'/><circle cx='220' cy='480' r='2' fill='url(%23d)'/><circle cx='340' cy='510' r='1.6' fill='url(%23d)'/><circle cx='480' cy='460' r='2.2' fill='url(%23d)'/><circle cx='600' cy='540' r='1.4' fill='url(%23d)'/><circle cx='730' cy='500' r='1.8' fill='url(%23d)'/><circle cx='150' cy='180' r='0.9' fill='url(%23d)'/><circle cx='280' cy='420' r='0.8' fill='url(%23d)'/><circle cx='410' cy='220' r='1' fill='url(%23d)'/><circle cx='590' cy='250' r='0.9' fill='url(%23d)'/><circle cx='660' cy='430' r='1' fill='url(%23d)'/></g></svg>");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Soft animated shimmer band */
+.hero-gold-bg::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  opacity: 0.07;
+  background: conic-gradient(
+    from 220deg at 30% 40%,
+    transparent 0deg,
+    rgba(233, 211, 154, 0.6) 60deg,
+    transparent 120deg,
+    transparent 360deg
+  );
+  filter: blur(40px);
+}
+
 /* Glow */
 .glow-gold {
   box-shadow:

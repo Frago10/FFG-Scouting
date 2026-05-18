@@ -23,15 +23,12 @@ export default function Hero() {
       ref={ref}
       className="relative min-h-[100svh] w-full overflow-hidden bg-ink-deep grain"
     >
-      {/* Background — gold-textured gradient */}
+      {/* Background — pure CSS gold-dust gradient, infinitely sharp */}
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/hero-bg.avif')" }}
-        />
-        {/* Subtle vignette so text reads cleanly */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-deep/30 via-transparent to-ink-deep/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-deep/60 via-transparent to-ink-deep/60" />
+        <div className="hero-gold-bg absolute inset-0" />
+        {/* Vignettes for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-ink-deep/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink-deep/30 via-transparent to-ink-deep/30" />
       </motion.div>
 
       {/* Decorative side rails */}
