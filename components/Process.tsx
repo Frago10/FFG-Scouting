@@ -77,10 +77,10 @@ export default function Process() {
                   <div className="absolute inset-[3px] bg-gold" />
                 </div>
 
-                <div className="font-serif text-2xl md:text-3xl text-cream leading-tight mb-3 mt-4 md:mt-8">
+                <div className="font-serif text-2xl md:text-3xl text-cream leading-tight mb-3 mt-4 md:mt-8 break-words">
                   {s.t}
                 </div>
-                <p className="text-cream/70 text-sm leading-relaxed">{s.d}</p>
+                <p className="text-cream/70 text-sm leading-relaxed break-words">{s.d}</p>
 
                 {/* Arrow between steps */}
                 {i < t.process.steps.length - 1 && (

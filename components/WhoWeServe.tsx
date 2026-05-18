@@ -36,17 +36,17 @@ export default function WhoWeServe() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.7, delay: i * 0.08 }}
-              className="relative bg-ink-deep p-6 md:p-8 group hover:bg-ink-soft transition-colors min-h-[260px] flex flex-col"
+              className="relative bg-ink-deep p-6 md:p-8 group hover:bg-ink-soft transition-colors min-h-[300px] flex flex-col"
             >
-              <div className="flex items-start justify-between mb-6">
+              <div className="flex items-start justify-between gap-3 mb-6">
                 <span className="font-serif text-shimmer text-5xl tabular leading-none">
                   {c.k}
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-ultrawide text-gold/70">
+                <span className="font-mono text-[10px] uppercase tracking-ultrawide text-gold/70 text-right">
                   {i === 0 ? "ATHLETE" : i === 1 ? "FAMILY" : i === 2 ? "GLOBAL" : "TRANSITION"}
                 </span>
               </div>
-              <div className="font-serif text-2xl text-cream leading-tight mb-3">
+              <div className="font-serif text-2xl md:text-3xl text-cream leading-tight mb-4 break-words">
                 {c.t}
               </div>
               <p className="text-cream/70 text-sm leading-relaxed mt-auto">{c.d}</p>

@@ -51,7 +51,7 @@ export default function Philosophy() {
                 <span className="font-mono text-xs text-gold tabular shrink-0 mt-3">
                   0{i + 1}
                 </span>
-                <p className="font-serif italic text-3xl md:text-4xl leading-[1.1] tracking-tight text-cream">
+                <p className="font-serif italic text-2xl md:text-3xl lg:text-4xl leading-[1.15] tracking-tight text-cream break-words">
                   {lang === "en" ? m.en : m.es}
                 </p>
               </div>

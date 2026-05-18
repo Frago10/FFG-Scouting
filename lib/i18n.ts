@@ -84,7 +84,7 @@ export const dict = {
       cards: [
         {
           k: "01",
-          t: "Athletes 15–28",
+          t: "Athletes",
           d: "Talents at the inflection point — about to decide what the next 10 years of their life look like."
         },
         {
@@ -420,7 +420,7 @@ export const dict = {
       cards: [
         {
           k: "01",
-          t: "Atletas 15–28",
+          t: "Atletas",
           d: "Talentos en el punto de inflexión — a punto de decidir cómo se verán los próximos 10 años de su vida."
         },
         {

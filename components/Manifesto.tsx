@@ -23,7 +23,7 @@ export default function Manifesto() {
 
         <div className="grid md:grid-cols-12 gap-10">
           <div className="md:col-span-9">
-            <p className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
+            <p className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.15] tracking-tight break-words">
               {t.manifesto.words.map((w, i) => (
                 <motion.span
                   key={i}

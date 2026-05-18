@@ -48,10 +48,10 @@ export default function WhoWeAre() {
               <div className="font-mono text-[10px] uppercase tracking-ultrawide text-gold mb-6">
                 {p.k}
               </div>
-              <div className="font-serif text-3xl md:text-4xl leading-[0.95] tracking-tightest text-cream mb-4">
+              <div className="font-serif text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tightest text-cream mb-4 break-words">
                 {p.t}
               </div>
-              <p className="text-cream/70 leading-relaxed">{p.d}</p>
+              <p className="text-cream/70 leading-relaxed break-words">{p.d}</p>
               <span className="absolute bottom-0 left-0 h-px w-0 bg-gold group-hover:w-full transition-all duration-700" />
             </motion.div>
           ))}

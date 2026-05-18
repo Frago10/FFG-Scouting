@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
 
 const memberImage: Record<string, string> = {
-  malcom: "/images/malcom-founder.jpg",
+  malcom: "/images/malcom-founder.png",
   "advisor-2": "/images/spain.jpg",
   "advisor-3": "/images/usa-greenville.jpg"
 };
@@ -75,21 +75,22 @@ export default function Staff() {
           className="group w-full text-left bg-ink-deep border border-ink-line hover:border-gold/50 transition-colors mb-px"
         >
           <div className="grid md:grid-cols-12 items-stretch">
-            {/* Portrait */}
-            <div className="md:col-span-4 relative aspect-[3/4] md:aspect-auto md:min-h-[460px] overflow-hidden bg-ink-soft border-b md:border-b-0 md:border-r border-ink-line">
+            {/* Portrait — aspect matches the source, full image visible */}
+            <div className="md:col-span-4 relative aspect-[4/5] md:aspect-auto md:min-h-[520px] overflow-hidden bg-cream border-b md:border-b-0 md:border-r border-ink-line">
               <img
                 src={memberImage[founder.id]}
                 alt={founder.name}
-                className="absolute inset-0 h-full w-full object-cover object-[38%_center] transition-transform duration-[1.5s] group-hover:scale-105"
+                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-[1.5s] group-hover:scale-[1.03]"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-ink-deep/40 via-transparent to-transparent" />
+              {/* Subtle bottom gradient only, so the entire face/torso stays visible */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink-deep/40 to-transparent" />
 
-              <div className="absolute top-3 left-3 h-5 w-5 border-l border-t border-cream/40" />
-              <div className="absolute top-3 right-3 h-5 w-5 border-r border-t border-cream/40" />
-              <div className="absolute bottom-3 left-3 h-5 w-5 border-l border-b border-cream/40" />
-              <div className="absolute bottom-3 right-3 h-5 w-5 border-r border-b border-cream/40" />
+              <div className="absolute top-3 left-3 h-5 w-5 border-l border-t border-ink-deep/40" />
+              <div className="absolute top-3 right-3 h-5 w-5 border-r border-t border-ink-deep/40" />
+              <div className="absolute bottom-3 left-3 h-5 w-5 border-l border-b border-ink-deep/40" />
+              <div className="absolute bottom-3 right-3 h-5 w-5 border-r border-b border-ink-deep/40" />
 
-              <div className="absolute top-5 left-5 right-5 flex items-center justify-between font-mono text-[10px] uppercase tracking-ultrawide text-cream/80">
+              <div className="absolute top-5 left-5 right-5 flex items-center justify-between font-mono text-[10px] uppercase tracking-ultrawide text-ink-deep/70">
                 <span className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
                   01 / FOUNDER
@@ -99,14 +100,14 @@ export default function Staff() {
             </div>
 
             {/* Bio */}
-            <div className="md:col-span-8 p-6 md:p-10 flex flex-col gap-5">
-              <div className="font-mono text-[10px] uppercase tracking-ultrawide text-gold">
+            <div className="md:col-span-8 p-6 md:p-10 flex flex-col gap-4 md:gap-5">
+              <div className="font-mono text-[10px] uppercase tracking-ultrawide text-gold break-words">
                 {founder.role}
               </div>
-              <div className="font-serif text-4xl md:text-6xl text-cream leading-[0.95] tracking-tightest">
+              <div className="font-serif text-4xl md:text-5xl lg:text-6xl text-cream leading-[0.95] tracking-tightest break-words">
                 Malcom <span className="italic text-shimmer">Frago.</span>
               </div>
-              <p className="text-cream/75 leading-relaxed max-w-2xl">
+              <p className="text-cream/75 leading-relaxed max-w-2xl break-words">
                 {founder.short}
               </p>
               <div className="flex flex-wrap gap-2 pt-2">
@@ -119,11 +120,11 @@ export default function Staff() {
                   </span>
                 ))}
               </div>
-              <div className="mt-auto pt-6 border-t border-ink-line flex items-center justify-between gap-4">
+              <div className="mt-auto pt-6 border-t border-ink-line flex flex-wrap items-center justify-between gap-3">
                 <span className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
                   Click to expand full profile
                 </span>
-                <span className="inline-flex items-center gap-2 bg-lime text-ink-deep px-4 py-2 font-mono text-[10px] uppercase tracking-ultrawide group-hover:gap-3 transition-all">
+                <span className="inline-flex items-center gap-2 bg-lime text-ink-deep px-4 py-2 font-mono text-[10px] uppercase tracking-ultrawide group-hover:gap-3 transition-all whitespace-nowrap">
                   {t.staff.open} <span>→</span>
                 </span>
               </div>
@@ -244,33 +245,33 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
 
         {/* Hero block */}
         <div className="relative grid md:grid-cols-12 gap-px bg-ink-line border-b border-ink-line">
-          <div className="md:col-span-5 relative aspect-[3/4] md:aspect-auto md:min-h-[600px] bg-ink-deep overflow-hidden">
+          <div className="md:col-span-5 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] bg-cream overflow-hidden">
             <img
-              src="/images/malcom-founder.jpg"
+              src="/images/malcom-founder.png"
               alt="Malcom Frago"
-              className="absolute inset-0 h-full w-full object-cover object-[38%_center]"
+              className="absolute inset-0 h-full w-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-transparent to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-ink-deep/30 to-transparent" />
           </div>
-          <div className="md:col-span-7 bg-ink-deep p-8 md:p-12 flex flex-col gap-6 justify-center">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-12 bg-gold" />
-              <span className="font-mono text-[11px] uppercase tracking-ultrawide text-gold">
+          <div className="md:col-span-7 bg-ink-deep p-6 md:p-12 flex flex-col gap-5 md:gap-6 justify-center">
+            <div className="flex items-start gap-3">
+              <span className="h-px w-8 md:w-12 bg-gold mt-2 shrink-0" />
+              <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-ultrawide text-gold break-words">
                 Founder · Active Pro Footballer · Lead Advisor
               </span>
             </div>
-            <h3 className="font-serif text-5xl md:text-7xl leading-[0.9] tracking-tightest">
+            <h3 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[0.9] tracking-tightest break-words">
               Malcom <span className="italic text-shimmer">Frago.</span>
             </h3>
-            <p className="text-cream/80 leading-relaxed max-w-2xl">{m.intro}</p>
+            <p className="text-cream/80 leading-relaxed max-w-2xl break-words">{m.intro}</p>
 
-            <div className="grid grid-cols-4 gap-px bg-ink-line border border-ink-line mt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-ink-line border border-ink-line mt-2">
               {m.stats.map((s) => (
                 <div key={s.l} className="bg-ink-deep p-4">
-                  <div className="font-serif text-shimmer text-3xl tabular leading-none">
+                  <div className="font-serif text-shimmer text-2xl md:text-3xl tabular leading-none">
                     {s.v}
                   </div>
-                  <div className="font-mono text-[9px] uppercase tracking-ultrawide text-cream-muted mt-2">
+                  <div className="font-mono text-[9px] uppercase tracking-ultrawide text-cream-muted mt-2 break-words">
                     {s.l}
                   </div>
                 </div>

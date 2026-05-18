@@ -93,7 +93,7 @@ export default function Contact() {
           {/* Form */}
           <form
             onSubmit={onSubmit}
-            className="md:col-span-7 bg-ink-deep p-8 md:p-12 space-y-6"
+            className="md:col-span-7 bg-ink-deep p-6 md:p-12 space-y-6 relative"
           >
             {/* Honeypot — hidden from users, bots fill it */}
             <input

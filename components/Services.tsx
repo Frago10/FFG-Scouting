@@ -58,7 +58,7 @@ export default function Services() {
                 </span>
               </div>
 
-              <div className="font-serif text-2xl md:text-3xl text-cream leading-tight mb-3 min-h-[70px]">
+              <div className="font-serif text-xl md:text-2xl text-cream leading-tight mb-3 min-h-[64px] break-words">
                 {s.t}
               </div>
 
