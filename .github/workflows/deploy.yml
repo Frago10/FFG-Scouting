@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Triggered on every push to main
+  # Triggered on every push to the default branch.
+  # 'master' is this repo's primary branch; 'main' is included for portability.
   push:
-    branches: [main]
+    branches: [master, main]
   # Allow manual run from the Actions tab
   workflow_dispatch:
 
@@ -36,10 +37,12 @@ jobs:
 
       - name: Build static export
         env:
-          # Repo name becomes the URL prefix on GH Pages project pages:
-          #   https://<user>.github.io/<repo>/
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          # Custom domain (ffg-scouting.com) serves the site at the root,
+          # so the base path stays empty. If you ever move OFF the custom
+          # domain, set this to /<repo-name> here.
+          NEXT_PUBLIC_BASE_PATH: ""
           # Web3Forms key — store as a repo secret with the SAME name
+          # (Settings → Secrets and variables → Actions → New repository secret)
           NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY: ${{ secrets.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY }}
         run: npm run build
 

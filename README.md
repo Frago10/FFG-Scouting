@@ -56,56 +56,48 @@ Change the recipient later from web3forms.com → no code change required.
 
 ---
 
-## 3. Deploy to GitHub Pages (free, always-on)
+## 3. Deploy to GitHub Pages
 
-The repo ships with a GitHub Actions workflow that builds and publishes
-the static export on every push to `main`.
+This repo ships with a GitHub Actions workflow that builds and publishes
+the static export on every push to `master` (also triggers on `main` for
+portability).
 
-### One-time setup
+### Current production setup
 
-1. **Push the project to GitHub:**
-   ```bash
-   git init
-   git add .
-   git commit -m "FFG-Scouting site"
-   gh repo create ffg-scouting --public --source=. --push
-   # or create the repo manually on github.com and `git push -u origin main`
-   ```
+- **Repository default branch:** `master`
+- **Custom domain:** `ffg-scouting.com` (served at the site root → no base path)
+- **Pages source:** must be set to **GitHub Actions** (see step 2 below)
 
-2. **Enable Pages with GitHub Actions as the source:**
-   - GitHub repo → **Settings → Pages**
-   - **Build and deployment → Source:** *GitHub Actions*
+The `public/CNAME` file in the repo locks the custom domain to the site so
+re-deploys never drop it.
 
-3. **Add the Web3Forms access key as a repo secret:**
-   - GitHub repo → **Settings → Secrets and variables → Actions**
-   - **New repository secret**
+### One-time setup (3 actions in GitHub UI)
+
+1. **Switch the Pages source from "Deploy from a branch" to "GitHub Actions":**
+   - Repo → **Settings → Pages**
+   - **Build and deployment → Source:** select **GitHub Actions**
+   - (This is the only manual step required to flip from a branch-served
+     site to the workflow-built one.)
+
+2. **Add the Web3Forms access key as a repo secret:**
+   - Repo → **Settings → Secrets and variables → Actions** → **New repository secret**
      - Name: `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
-     - Value: *(your key from web3forms.com)*
+     - Value: *(your key from web3forms.com — registered with `jeanpaulfrago10@gmail.com`)*
 
-4. **Trigger the first deploy:**
-   - Push any commit to `main`, or run the workflow manually from the
-     *Actions* tab.
+3. **Push to master** — or run the workflow manually from the *Actions* tab.
+   After ~60 seconds the site is live at <https://ffg-scouting.com/>.
 
-After ~60 seconds the site is live at:
+Every subsequent `git push` to `master` re-deploys automatically.
 
-```
-https://<your-github-username>.github.io/<repo-name>/
-```
+### If you move OFF the custom domain later
 
-The workflow automatically sets `NEXT_PUBLIC_BASE_PATH=/<repo-name>` so
-all asset paths resolve under that prefix.
-
-### Custom domain (optional, free SSL)
-
-1. Add a `CNAME` file in `public/` containing the domain (e.g.
-   `ffg-scouting.com`).
-2. **Settings → Pages → Custom domain** → enter the domain.
-3. Configure DNS:
-   - Apex: `A` records → `185.199.108.153 / 109.153 / 110.153 / 111.153`
-   - Subdomain: `CNAME` → `<user>.github.io`
-4. Once the domain is active, **clear** `NEXT_PUBLIC_BASE_PATH` (remove
-   from `.env`, and edit `.github/workflows/deploy.yml` to drop the
-   `NEXT_PUBLIC_BASE_PATH` env line) and re-deploy.
+1. Delete `public/CNAME`.
+2. In `.github/workflows/deploy.yml`, change the `NEXT_PUBLIC_BASE_PATH`
+   line to:
+   ```yaml
+   NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+   ```
+3. Re-deploy. The site will be live at `https://<user>.github.io/<repo-name>/`.
 
 ---
 

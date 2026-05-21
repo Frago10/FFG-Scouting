@@ -114,15 +114,22 @@ The PDF tagline-line *"Beyond the game. Global athlete careers."* is the global 
 
 ## 9 · Deployment — GitHub Pages
 
+**Production URL:** <https://ffg-scouting.com/>
+**Default branch:** `master`
+**Pages source:** GitHub Actions (workflow-driven)
+
 See `README.md §3` for the full procedure. Summary:
 
 - `next.config.mjs` has `output: "export"` + conditional `basePath`/`assetPrefix` from `NEXT_PUBLIC_BASE_PATH`.
-- `.github/workflows/deploy.yml` builds on push to `main`, sets `NEXT_PUBLIC_BASE_PATH=/${{ github.event.repository.name }}` automatically, uploads `./out`, deploys via `actions/deploy-pages@v4`.
+- `public/CNAME` contains `ffg-scouting.com` — required so re-deploys preserve the custom domain.
 - `public/.nojekyll` prevents GH Pages from skipping `_next/`.
-- All `<img>` and asset paths go through `lib/asset.ts` so they inherit the basePath.
+- `.github/workflows/deploy.yml` builds on push to `master` (also `main`), keeps `NEXT_PUBLIC_BASE_PATH` empty because the site is served at the root of the custom domain, uploads `./out`, deploys via `actions/deploy-pages@v4`.
+- All `<img>` and asset paths go through `lib/asset.ts` so they inherit any basePath if the project ever moves to `user.github.io/repo`.
 - Repo secret required: **`NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`**.
 
 The contact form is fully client-side now — there is no server route in the project. `app/api/` does not exist and should NOT be reintroduced unless the hosting target changes off GH Pages.
+
+**Off-custom-domain switch:** delete `public/CNAME` and edit the workflow's `NEXT_PUBLIC_BASE_PATH` env to `/${{ github.event.repository.name }}`.
 
 ---
 
