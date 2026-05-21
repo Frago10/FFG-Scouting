@@ -20,21 +20,63 @@ export default function Contact() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
+    const data = Object.fromEntries(formData.entries()) as Record<string, string>;
+
+    // Honeypot — bots fill this hidden field
+    if (data.company) {
+      setStatus({ kind: "success" });
+      form.reset();
+      return;
+    }
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      setStatus({
+        kind: "error",
+        message: "Form not configured yet. Please use WhatsApp."
+      });
+      return;
+    }
+
+    const name = (data.name || "").trim();
+    const email = (data.email || "").trim();
+    const role = (data.role || "").trim();
+    const message = (data.message || "").trim();
+
+    if (!name || !email || !message) {
+      setStatus({
+        kind: "error",
+        message: "Name, email and message are required."
+      });
+      return;
+    }
 
     setStatus({ kind: "loading" });
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `FFG-Scouting · New Assessment Request — ${name}`,
+          from_name: "FFG-Scouting Website",
+          replyto: email,
+          Name: name,
+          Email: email,
+          Role: role || "—",
+          Message: message,
+          Source: "FFG-Scouting / Booking form"
+        })
       });
-      const json = await res.json();
-      if (!res.ok || !json.ok) {
+      const json = (await res.json()) as { success?: boolean; message?: string };
+      if (!res.ok || !json.success) {
         setStatus({
           kind: "error",
-          message: json.error || "Something went wrong. Please try WhatsApp."
+          message: json.message || "Something went wrong. Please try WhatsApp."
         });
         return;
       }

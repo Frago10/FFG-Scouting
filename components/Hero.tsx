@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useLang } from "@/lib/LanguageContext";
+import { asset } from "@/lib/asset";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -84,7 +85,7 @@ export default function Hero() {
           >
             <h1 className="sr-only">FFG-Scouting</h1>
             <img
-              src="/images/ffg-logo.jpg"
+              src={asset("/images/ffg-logo.jpg")}
               alt="FFG · Frago Football Group"
               className="block w-[260px] sm:w-[320px] md:w-[400px] lg:w-[440px] h-auto select-none mix-blend-screen drop-shadow-[0_20px_60px_rgba(201,169,106,0.25)]"
               draggable={false}
