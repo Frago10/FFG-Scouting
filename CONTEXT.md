@@ -101,26 +101,33 @@ Tagline *"Beyond the game. Global athlete careers."* is the global tagline.
 
 **Production URL:** <https://ffg-scouting.com/>
 **Default branch:** `master`
-**Pages source:** *Deploy from a branch* → `master` / `/docs`
+**Pages source:** *Deploy from a branch* → `master` / `(root)`
 
 The deploy flow is intentionally simple (no GitHub Actions, no third-party services):
 
 ```
-npm run deploy          # next build → rename out/ to docs/
+npm run deploy          # next build → move out/* to repo root
 .\git_push.ps1          # add + commit + push origin master
                         # ↳ GH Pages auto-publishes ffg-scouting.com
 ```
 
 `scripts/deploy.mjs` is the single source of truth for the build flow. `setup_git.ps1` / `git_push.ps1` mirror the **triarch** project pattern at `OB vault/03 - Resources/Data Engineering/Python/triarch`.
 
+Built artifacts live at the repo root (NOT in a `/docs/` subfolder). This matches the triarch pattern exactly: source folders (`app/`, `components/`, etc.) coexist with built files (`index.html`, `_next/`, `images/`, etc.) — GH Pages serves the static files and ignores the rest.
+
 Key files for hosting:
 
-- `public/CNAME` → `ffg-scouting.com` (pins the custom domain across deploys)
-- `public/.nojekyll` → stops GH Pages from skipping `_next/`
-- `docs/` → committed; this is what GH Pages serves
+- `public/CNAME` → `ffg-scouting.com` (pins the custom domain across deploys; copied to root by Next.js)
+- `public/.nojekyll` → stops GH Pages from skipping `_next/` (copied to root by Next.js)
 - `next.config.mjs` → `output: "export"` + `trailingSlash: true` + `images.unoptimized: true`
 
-**Nothing else.** No Vercel config. No `.github/workflows/`. No `lib/asset.ts` helper. No env vars.
+Build artifacts at the repo root that GH Pages serves:
+- `index.html`, `404.html`, `404/`, `index.txt`
+- `_next/` (CSS, JS chunks, fonts)
+- `images/` (copy of `public/images/`)
+- `CNAME`, `.nojekyll`
+
+**Nothing else.** No Vercel config. No `.github/workflows/`. No `lib/asset.ts` helper. No env vars. No `/docs/` folder.
 
 ---
 
@@ -134,7 +141,7 @@ Key files for hosting:
 6. Hero stats removed; FFG logo replaced typographic "Beyond the game" as main element.
 7. Services prices removed; title shortened to "Services."
 8. Navbar restructured to 3-column grid for symmetry.
-9. **Switched away from GitHub Actions + Web3Forms + Vercel** to the triarch-style simple flow: build to `/docs`, push to master, GH Pages serves it. Contact form now uses `mailto:` directly.
+9. **Switched away from GitHub Actions + Web3Forms + Vercel** to the triarch-style simple flow: build to repo ROOT (not `/docs/`), push to master, GH Pages serves it from `master / (root)`. Contact form now uses `mailto:` directly.
 
 ---
 
@@ -169,9 +176,10 @@ public/
                               # chapter photos used inside the Staff modal trajectory
 
 scripts/
-  deploy.mjs        # next build → rename out/ to docs/
+  deploy.mjs        # next build → move out/* into repo root
 
-docs/               # COMMITTED build output — GH Pages serves this folder
+# COMMITTED build artifacts at repo root (what GH Pages actually serves):
+index.html  404.html  404/  index.txt  _next/  images/  CNAME  .nojekyll
 
 setup_git.ps1       # first-time: git init + remote + initial commit
 git_push.ps1        # every deploy: npm run deploy + add + commit + push
@@ -189,7 +197,7 @@ tailwind.config.ts  # palette + typography + animations
 - Keep both `en` and `es` trees in sync (every key, both languages).
 - Use plain `/images/...` paths in components — no helper, no prefix.
 - Keep the Staff modal as the only place Malcom's career details live.
-- Run `npm run deploy` before pushing — it rebuilds `/docs`, which is what GH Pages serves.
+- Run `npm run deploy` before pushing — it rebuilds the root build artifacts (`index.html`, `_next/`, `images/`, etc.), which is what GH Pages serves.
 - Verify with `npx tsc --noEmit && npm run deploy` before claiming done.
 
 **DON'T**

@@ -39,8 +39,8 @@ Snapshot inicial - FFG-Scouting site
 - 11 secciones: Hero / Ticker / WhoWeAre / Philosophy / WhoWeServe /
   Process / Services / Staff (con modal de fundador) / Manifesto /
   Contact / Footer
-- Build estático en ./docs, sirve via GH Pages master / /docs
-- Custom domain ffg-scouting.com (CNAME en public/)
+- Build estático directo al repo root, sirve via GH Pages master / (root)
+- Custom domain ffg-scouting.com (CNAME en public/, copiado a root)
 - Form de contacto vía mailto: (sin servicios externos)
 "@
 
@@ -60,7 +60,8 @@ Write-Host "==> Listo. Para empujar al remoto corre:" -ForegroundColor Green
 Write-Host "    git push -u origin master" -ForegroundColor White
 Write-Host ""
 Write-Host "Despues de empujar, en GitHub:" -ForegroundColor Gray
-Write-Host "  Settings -> Pages -> Branch: master / /docs -> Save" -ForegroundColor Gray
+Write-Host "  Settings -> Pages -> Branch: master / (root) -> Save" -ForegroundColor Gray
+Write-Host "  (probablemente ya esta asi, no requiere cambio)" -ForegroundColor Gray
 Write-Host ""
 Write-Host "Si es la primera vez, Windows va a abrir una ventana para autenticarte" -ForegroundColor Gray
 Write-Host "(Personal Access Token o login con tu cuenta de GitHub via browser)." -ForegroundColor Gray

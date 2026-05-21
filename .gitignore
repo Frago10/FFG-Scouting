@@ -1,6 +1,7 @@
 node_modules
 .next
 out
+docs
 .env
 .env.local
 .env.*.local
@@ -10,4 +11,7 @@ out
 next-env.d.ts
 tsconfig.tsbuildinfo
 
-# NOTE: ./docs is intentionally NOT ignored — that's the built site GH Pages serves.
+# NOTE — Build artifacts that DO get committed (live at the repo root,
+# served by GitHub Pages from master / (root)):
+#   index.html, 404.html, index.txt, 404/, _next/, images/, CNAME, .nojekyll
+# These are produced by `npm run deploy` and must stay tracked.

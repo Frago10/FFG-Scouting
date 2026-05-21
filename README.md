@@ -5,10 +5,10 @@
 Company landing for **FFG-Scouting** — built as a sales tool for athletes, families and sporting directors.
 
 **Stack:** Next.js 14 (App Router, static export) · TypeScript · Tailwind CSS · Framer Motion.
-**Hosting:** GitHub Pages — *Deploy from a branch* → `master` / `/docs`.
+**Hosting:** GitHub Pages — *Deploy from a branch* → `master` / `(root)`.
 **Production URL:** <https://ffg-scouting.com/>
 
-No Vercel. No GitHub Actions. No third-party form services. Just a build script and `git push`.
+No Vercel. No GitHub Actions. No third-party form services. The built HTML, CSS and JS live at the repo root (same pattern as the triarch project). Just `npm run deploy` + `git push`.
 
 ---
 
@@ -28,7 +28,7 @@ Open <http://localhost:3000>.
 Two commands. That's it.
 
 ```powershell
-npm run deploy          # build the site → ./docs
+npm run deploy          # build → repo root (index.html, _next/, images/, CNAME, .nojekyll)
 .\git_push.ps1          # commit & push to origin/master
 ```
 
@@ -40,7 +40,7 @@ npm run deploy          # build the site → ./docs
 
 (Optional commit message argument — defaults to *"deploy: site update"*.)
 
-GitHub Pages picks up the new `/docs` content automatically and `ffg-scouting.com` is updated in ~30 seconds.
+GitHub Pages picks up the new root content automatically and `ffg-scouting.com` is updated in ~30 seconds.
 
 ### First-time repository setup
 
@@ -53,7 +53,7 @@ Then in GitHub:
 
 1. **Settings → Pages → Build and deployment**
 2. **Source:** *Deploy from a branch*
-3. **Branch:** `master` · folder `/docs` · **Save**
+3. **Branch:** `master` · folder `/ (root)` · **Save**
 4. **Custom domain:** `ffg-scouting.com` (the `public/CNAME` file pins it after every deploy)
 
 ---
@@ -61,20 +61,22 @@ Then in GitHub:
 ## 3. How the deploy works
 
 ```
-                next build
-public/        ─────────────►   out/        ─── rename ──►   docs/
-├── CNAME                        ├── index.html               ├── index.html
-├── .nojekyll                    ├── CNAME                    ├── CNAME
-└── images/                      ├── .nojekyll                ├── .nojekyll
-                                 ├── _next/                   ├── _next/
-                                 └── images/                  └── images/
-                                                                  ▲
-                                                                  │
-                                          GitHub Pages serves ────┘
+                next build                        scripts/deploy.mjs
+public/        ─────────────►   out/             ─── move to root ──►   <repo root>
+├── CNAME                        ├── index.html                            ├── index.html
+├── .nojekyll                    ├── CNAME                                 ├── CNAME
+└── images/                      ├── .nojekyll                             ├── .nojekyll
+                                 ├── _next/                                ├── _next/
+                                 ├── images/                               ├── images/
+                                 ├── 404.html                              ├── 404.html
+                                 └── ...                                   └── (source folders too)
+                                                                                ▲
+                                                                                │
+                                          GitHub Pages serves master/(root) ───┘
                                           ↳ ffg-scouting.com
 ```
 
-`scripts/deploy.mjs` runs `next build` (which writes the static export to `out/`), then renames `out/` to `docs/`. The folder gets committed alongside the source code in `master`.
+`scripts/deploy.mjs` runs `next build` (which writes the static export to `out/`), then moves every file/folder from `out/` to the repo root, overwriting any previous build artifacts. Source folders (`app/`, `components/`, etc.) stay untouched alongside the built files — GH Pages just serves the static HTML and ignores everything else.
 
 - **`public/CNAME`** pins the custom domain — without it, GH Pages drops the domain on every redeploy.
 - **`public/.nojekyll`** stops GH Pages from skipping the `_next/` folder.
@@ -126,9 +128,15 @@ public/
   images/                 # All Malcom photos + logo + textures
 
 scripts/
-  deploy.mjs              # build → rename out/ to docs/
+  deploy.mjs              # build → move out/* to repo root
 
-docs/                     # ← built site (committed; GH Pages serves this)
+# ── Build artifacts committed at the repo root ──
+index.html                # ← GH Pages serves this
+404.html
+_next/                    # CSS / JS chunks / fonts
+images/                   # copies of public/images/
+CNAME                     # ffg-scouting.com
+.nojekyll                 # tells GH Pages to serve _next/ as-is
 
 setup_git.ps1             # one-time: git init + remote + first commit
 git_push.ps1              # every deploy: build + commit + push
@@ -158,8 +166,8 @@ All copy lives in `lib/i18n.ts` with `en` and `es` mirror trees. Update both for
 
 ```bash
 npm run dev        # local dev server
-npm run build      # static export → ./out (no rename)
-npm run deploy     # build + rename out/ → docs/
+npm run build      # static export → ./out (no copy to root)
+npm run deploy     # build + move out/* to repo root (ready to commit)
 ```
 
 ---
