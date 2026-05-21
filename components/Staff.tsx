@@ -3,12 +3,11 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/lib/LanguageContext";
-import { asset } from "@/lib/asset";
 
 const memberImage: Record<string, string> = {
-  malcom: asset("/images/malcom-founder.png"),
-  "advisor-2": asset("/images/spain.jpg"),
-  "advisor-3": asset("/images/usa-greenville.jpg")
+  malcom: "/images/malcom-founder.png",
+  "advisor-2": "/images/spain.jpg",
+  "advisor-3": "/images/usa-greenville.jpg"
 };
 
 export default function Staff() {
@@ -197,11 +196,11 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
   const lineY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const images = [
-    asset("/images/aspire.jpg"),
-    asset("/images/saprissa-training.jpg"),
-    asset("/images/usa-celebration.jpg"),
-    asset("/images/costa-rica.jpg"),
-    asset("/images/spain.jpg")
+    "/images/aspire.jpg",
+    "/images/saprissa-training.jpg",
+    "/images/usa-celebration.jpg",
+    "/images/costa-rica.jpg",
+    "/images/spain.jpg"
   ];
 
   return (
@@ -248,7 +247,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
         <div className="relative grid md:grid-cols-12 gap-px bg-ink-line border-b border-ink-line">
           <div className="md:col-span-5 relative aspect-[4/5] md:aspect-auto md:min-h-[640px] bg-cream overflow-hidden">
             <img
-              src={asset("/images/malcom-founder.png")}
+              src="/images/malcom-founder.png"
               alt="Malcom Frago"
               className="absolute inset-0 h-full w-full object-cover object-center"
             />

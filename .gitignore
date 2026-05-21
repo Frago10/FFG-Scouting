@@ -8,3 +8,6 @@ out
 *.log
 .vercel
 next-env.d.ts
+tsconfig.tsbuildinfo
+
+# NOTE: ./docs is intentionally NOT ignored — that's the built site GH Pages serves.

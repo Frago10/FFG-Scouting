@@ -10,11 +10,14 @@ type Status =
   | { kind: "success" }
   | { kind: "error"; message: string };
 
+// Inbox where the form should land
+const RECIPIENT_EMAIL = "jeanpaulfrago10@gmail.com";
+
 export default function Contact() {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
-  async function onSubmit(e: FormEvent<HTMLFormElement>) {
+  function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status.kind === "loading") return;
 
@@ -26,15 +29,6 @@ export default function Contact() {
     if (data.company) {
       setStatus({ kind: "success" });
       form.reset();
-      return;
-    }
-
-    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-    if (!accessKey) {
-      setStatus({
-        kind: "error",
-        message: "Form not configured yet. Please use WhatsApp."
-      });
       return;
     }
 
@@ -51,41 +45,28 @@ export default function Contact() {
       return;
     }
 
-    setStatus({ kind: "loading" });
+    // Build a mailto: link with the form contents pre-filled.
+    // Opens the user's default email client, addressed to the inbox.
+    const subject = `FFG-Scouting · Assessment Request — ${name}`;
+    const body =
+      `Name: ${name}\n` +
+      `Email: ${email}\n` +
+      `Role: ${role || "—"}\n\n` +
+      `${message}\n\n` +
+      `— sent from ffg-scouting.com`;
+
+    const mailto = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
 
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          subject: `FFG-Scouting · New Assessment Request — ${name}`,
-          from_name: "FFG-Scouting Website",
-          replyto: email,
-          Name: name,
-          Email: email,
-          Role: role || "—",
-          Message: message,
-          Source: "FFG-Scouting / Booking form"
-        })
-      });
-      const json = (await res.json()) as { success?: boolean; message?: string };
-      if (!res.ok || !json.success) {
-        setStatus({
-          kind: "error",
-          message: json.message || "Something went wrong. Please try WhatsApp."
-        });
-        return;
-      }
+      window.location.href = mailto;
       setStatus({ kind: "success" });
       form.reset();
     } catch {
       setStatus({
         kind: "error",
-        message: "Network error. Please try WhatsApp or Instagram."
+        message: "Could not open email client. Please use WhatsApp."
       });
     }
   }
@@ -182,11 +163,10 @@ export default function Contact() {
               <motion.button
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
-                disabled={status.kind === "loading"}
                 type="submit"
-                className="group inline-flex items-center gap-3 bg-lime text-ink-deep px-6 py-3 font-mono text-[11px] uppercase tracking-ultrawide hover:bg-cream transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="group inline-flex items-center gap-3 bg-lime text-ink-deep px-6 py-3 font-mono text-[11px] uppercase tracking-ultrawide hover:bg-cream transition-colors"
               >
-                {status.kind === "loading" ? "Sending…" : t.contact.transmit}
+                {t.contact.transmit}
                 <span className="transition-transform group-hover:translate-x-1">→</span>
               </motion.button>
 
@@ -200,7 +180,7 @@ export default function Contact() {
                     className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-lime"
                   >
                     <span className="h-2 w-2 rounded-full bg-lime" />
-                    Message sent — we'll reply within 48h.
+                    Email client opened — send to deliver.
                   </motion.div>
                 )}
                 {status.kind === "error" && (
