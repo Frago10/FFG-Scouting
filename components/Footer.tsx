@@ -68,16 +68,6 @@ export default function Footer() {
                   WhatsApp ES → +34 642 190 257
                 </a>
               </li>
-              <li>
-                <a
-                  className="hover:text-gold"
-                  href="https://wa.me/50672716335?text=PATH"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  WhatsApp CR → +506 7271 6335
-                </a>
-              </li>
               <li>Madrid · San José</li>
             </ul>
           </div>

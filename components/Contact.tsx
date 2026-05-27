@@ -239,28 +239,6 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://wa.me/50672716335?text=PATH"
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-start gap-4 border border-ink-line p-5 hover:border-lime hover:bg-ink-soft transition-colors"
-            >
-              <span className="grid place-items-center h-10 w-10 bg-lime/10 border border-lime/40 text-lime shrink-0">
-                <WhatsappIcon />
-              </span>
-              <div className="flex-1 min-w-0">
-                <div className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
-                  {t.contact.whatsappCr}
-                </div>
-                <div className="font-serif text-xl text-cream mt-1 tabular">
-                  +506 7271 6335
-                </div>
-                <div className="font-mono text-[10px] uppercase tracking-ultrawide text-gold/70 mt-1">
-                  send 'PATH' →
-                </div>
-              </div>
-            </a>
-
-            <a
               href="https://instagram.com/athletepathfrago"
               target="_blank"
               rel="noreferrer"
