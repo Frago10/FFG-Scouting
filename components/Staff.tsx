@@ -198,7 +198,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
 
   const images = [
     asset("/images/sounders.jpg"),
-    asset("/images/saprissa-game.jpg"),
+    asset("/images/saprissa-clean.png"),
     asset("/images/usa-celebration.jpg"),
     asset("/images/costa-rica-2.jpg"),
     asset("/images/spain-night.jpg")
