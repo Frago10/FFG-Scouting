@@ -217,9 +217,8 @@ export default function Contact() {
           {/* Direct channels */}
           <div className="md:col-span-5 bg-ink-deep p-8 md:p-12 flex flex-col gap-5">
             <a
-              href="https://wa.me/34642190257?text=PATH"
-              target="_blank"
-              rel="noreferrer"
+              href="https://wa.me/34642190257?text=Hi%20Malcom%2C%20I%27m%20interested%20in%20the%20Athlete%20Path%20Assessment."
+              rel="noopener"
               className="group flex items-start gap-4 border border-ink-line p-5 hover:border-lime hover:bg-ink-soft transition-colors"
             >
               <span className="grid place-items-center h-10 w-10 bg-lime/10 border border-lime/40 text-lime shrink-0">
@@ -233,7 +232,7 @@ export default function Contact() {
                   +34 642 190 257
                 </div>
                 <div className="font-mono text-[10px] uppercase tracking-ultrawide text-gold/70 mt-1">
-                  send 'PATH' →
+                  {t.ui.openChat} →
                 </div>
               </div>
             </a>

@@ -61,9 +61,8 @@ export default function Footer() {
               <li>
                 <a
                   className="hover:text-gold"
-                  href="https://wa.me/34642190257?text=PATH"
-                  target="_blank"
-                  rel="noreferrer"
+                  href="https://wa.me/34642190257?text=Hi%20Malcom%2C%20I%27m%20interested%20in%20the%20Athlete%20Path%20Assessment."
+                  rel="noopener"
                 >
                   WhatsApp ES → +34 642 190 257
                 </a>

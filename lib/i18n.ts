@@ -348,7 +348,8 @@ export const dict = {
       recommended: "RECOMMENDED",
       serveLabels: ["ATHLETE", "FAMILY", "GLOBAL", "TRANSITION"],
       staffProfiles: "Staff profiles",
-      founderIG: "Founder IG"
+      founderIG: "Founder IG",
+      openChat: "open chat"
     },
     ticker: [
       "BEYOND THE GAME",
@@ -717,7 +718,8 @@ export const dict = {
       recommended: "RECOMENDADO",
       serveLabels: ["ATLETA", "FAMILIA", "GLOBAL", "TRANSICIÓN"],
       staffProfiles: "Perfiles del staff",
-      founderIG: "IG del fundador"
+      founderIG: "IG del fundador",
+      openChat: "abrir chat"
     },
     ticker: [
       "MÁS ALLÁ DEL JUEGO",
