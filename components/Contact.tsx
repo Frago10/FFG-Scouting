@@ -10,14 +10,15 @@ type Status =
   | { kind: "success" }
   | { kind: "error"; message: string };
 
-// Inbox where the form should land
-const RECIPIENT_EMAIL = "malcomfrago15@gmail.com";
+// Web3Forms access key — get yours free at https://web3forms.com/
+// Enter malcomfrago15@gmail.com → "Create Access Key" → paste the UUID here
+const W3F_KEY = "PASTE_YOUR_WEB3FORMS_KEY_HERE";
 
 export default function Contact() {
   const { t } = useLang();
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (status.kind === "loading") return;
 
@@ -38,35 +39,38 @@ export default function Contact() {
     const message = (data.message || "").trim();
 
     if (!name || !email || !message) {
-      setStatus({
-        kind: "error",
-        message: "Name, email and message are required."
-      });
+      setStatus({ kind: "error", message: "Name, email and message are required." });
       return;
     }
 
-    // Build a mailto: link with the form contents pre-filled.
-    // Opens the user's default email client, addressed to the inbox.
-    const subject = `New Booking`;
-    const body =
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Role: ${role || "—"}\n\n` +
-      `${message}`;
-
-    const mailto = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setStatus({ kind: "loading" });
 
     try {
-      window.location.href = mailto;
-      setStatus({ kind: "success" });
-      form.reset();
-    } catch {
-      setStatus({
-        kind: "error",
-        message: "Could not open email client. Please use WhatsApp."
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: W3F_KEY,
+          subject: "New Booking",
+          from_name: name,
+          name,
+          email,
+          role: role || "—",
+          message,
+          botcheck: ""
+        })
       });
+
+      const json = await res.json();
+
+      if (res.ok && json.success) {
+        setStatus({ kind: "success" });
+        form.reset();
+      } else {
+        setStatus({ kind: "error", message: json.message || "Something went wrong. Try WhatsApp." });
+      }
+    } catch {
+      setStatus({ kind: "error", message: "Network error. Please try WhatsApp." });
     }
   }
 
@@ -170,6 +174,18 @@ export default function Contact() {
               </motion.button>
 
               <AnimatePresence mode="wait">
+                {status.kind === "loading" && (
+                  <motion.div
+                    key="loading"
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted"
+                  >
+                    <span className="h-2 w-2 rounded-full bg-cream-muted animate-pulse" />
+                    Sending…
+                  </motion.div>
+                )}
                 {status.kind === "success" && (
                   <motion.div
                     key="ok"
@@ -179,7 +195,7 @@ export default function Contact() {
                     className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-lime"
                   >
                     <span className="h-2 w-2 rounded-full bg-lime" />
-                    Email client opened — send to deliver.
+                    Message sent — we&apos;ll be in touch.
                   </motion.div>
                 )}
                 {status.kind === "error" && (
