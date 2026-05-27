@@ -15,7 +15,6 @@ export default function Navbar() {
   const links = [
     { label: t.nav.who, href: "#who" },
     { label: t.nav.philosophy, href: "#philosophy" },
-    { label: t.nav.process, href: "#process" },
     { label: t.nav.services, href: "#services" },
     { label: t.nav.staff, href: "#staff" }
   ];

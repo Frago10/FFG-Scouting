@@ -20,7 +20,7 @@ export const dict = {
       first: "Beyond",
       last: "the game.",
       sub: "FFG-Scouting builds real, sustainable international careers for athletes and their families. Strategy. Clarity. Execution.",
-      active: "Booking — Season 25/26",
+      active: "Booking Open",
       stats: [
         { v: "15–28", l: "Athlete age range" },
         { v: "4", l: "Continents covered" },
@@ -137,7 +137,7 @@ export const dict = {
       ]
     },
     services: {
-      section: "Section 05 · Services",
+      section: "Section 04 · Services",
       title1: "Services.",
       title2: "",
       sub: "Every engagement starts with the Assessment. Pricing is shared once we understand your situation.",
@@ -173,7 +173,7 @@ export const dict = {
       ]
     },
     staff: {
-      section: "Section 06 · Staff",
+      section: "Section 05 · Staff",
       title1: "The people",
       title2: "behind the path.",
       sub: "Built from real high-performance experience. Click a profile to expand.",
@@ -208,7 +208,7 @@ export const dict = {
       malcom: {
         kicker: "Founder · Active Pro Footballer",
         intro:
-          "Costa Rican. Active professional footballer currently playing in Spain — and the founder of FFG-Scouting. Aspire Academy alumnus, with chapters across Europe, the United States, the Middle East and Latin America. He runs the advisory from the same side as the athletes he serves: every Tuesday on the pitch, every Wednesday on the call. He has lived — and is still living — every decision he is now paid to inform.",
+          "Malcom Frago is a former international football player and sports entrepreneur with a career developed across elite environments in Europe, the United States, Central America and the Middle East. Selected at a young age for one of the world's most prestigious football development programs, Aspire Academy in Doha, Qatar, he later continued his progression within professional structures connected to clubs and high-performance systems internationally.\n\nAfter years of firsthand experience inside the competitive world of football — understanding both the opportunities and the challenges that talented players face — Malcolm transitioned his knowledge, international network and professional experience into the creation of a platform dedicated to helping athletes advance their careers beyond borders.\n\nToday, through Frago Football Group, he works closely with players and families to create real pathways toward professional clubs, academies, scholarships and university opportunities around the world. The agency is built on a combination of international exposure, strategic guidance, honest mentorship and a deep understanding of the modern football industry from the inside.\n\nHaving personally experienced the realities of elite football development, international transitions and career decision-making at a young age, Malcolm brings a unique perspective focused not only on talent, but also on discipline, mentality, commitment and long-term growth.\n\nFrago Football Group was created with a clear vision: to connect ambitious players with genuine opportunities and help them maximize their potential both on and off the field.",
         dual: {
           playerTitle: "The Player",
           playerSub: "Feels the grass.",
@@ -291,7 +291,7 @@ export const dict = {
       }
     },
     manifesto: {
-      section: "Section 07 · Manifesto",
+      section: "Section 06 · Manifesto",
       signed: "Signed",
       role: "Founder · FFG-Scouting",
       where: "San José ↔ Madrid",
@@ -307,7 +307,7 @@ export const dict = {
       ]
     },
     contact: {
-      section: "Section 08 · Booking",
+      section: "Section 07 · Booking",
       title1: "Book your",
       title2: "Athlete Path Assessment.",
       sub: "DM 'PATH' on Instagram, or open a WhatsApp line below. We reply within 48h.",
@@ -323,7 +323,7 @@ export const dict = {
       message: "Tell us about your situation",
       transmit: "Request Assessment",
       current: "Currently",
-      open: "Open to engagements · 25/26",
+      open: "Open to engagements",
       tagline: "Real careers. Smart decisions. Beyond the game."
     },
     footer: {
@@ -356,7 +356,7 @@ export const dict = {
       first: "Más allá",
       last: "del juego.",
       sub: "FFG-Scouting construye carreras internacionales reales y sostenibles para atletas y sus familias. Estrategia. Claridad. Ejecución.",
-      active: "Agenda — Temporada 25/26",
+      active: "Agenda abierta",
       stats: [
         { v: "15–28", l: "Rango de edad atleta" },
         { v: "4", l: "Continentes cubiertos" },
@@ -473,7 +473,7 @@ export const dict = {
       ]
     },
     services: {
-      section: "Sección 05 · Servicios",
+      section: "Sección 04 · Servicios",
       title1: "Servicios.",
       title2: "",
       sub: "Toda colaboración empieza con el Assessment. El precio se comparte cuando entendemos tu situación.",
@@ -509,7 +509,7 @@ export const dict = {
       ]
     },
     staff: {
-      section: "Sección 06 · Staff",
+      section: "Sección 05 · Staff",
       title1: "La gente",
       title2: "detrás del camino.",
       sub: "Construido desde experiencia real de alto rendimiento. Clic en un perfil para expandir.",
@@ -544,7 +544,7 @@ export const dict = {
       malcom: {
         kicker: "Fundador · Futbolista Pro Activo",
         intro:
-          "Costarricense. Futbolista profesional en activo jugando en España — y fundador de FFG-Scouting. Alumno de Aspire Academy, con capítulos en Europa, Estados Unidos, Medio Oriente y Latinoamérica. Dirige la consultoría desde el mismo lado de los atletas a los que sirve: cada martes en cancha, cada miércoles en llamada. Ha vivido — y sigue viviendo — cada decisión que ahora le pagan por informar.",
+          "Malcom Frago es un exfutbolista internacional y empresario deportivo con una carrera desarrollada en entornos de élite en Europa, Estados Unidos, Centroamérica y Medio Oriente. Seleccionado a una edad temprana para uno de los programas de desarrollo futbolístico más prestigiosos del mundo, la Aspire Academy en Doha, Qatar, continuó su progresión dentro de estructuras profesionales vinculadas a clubes y sistemas de alto rendimiento a nivel internacional.\n\nTras años de experiencia de primera mano dentro del competitivo mundo del fútbol — comprendiendo tanto las oportunidades como los desafíos que enfrentan los jugadores con talento — Malcom trasladó su conocimiento, su red internacional y su experiencia profesional a la creación de una plataforma dedicada a ayudar a atletas a avanzar en sus carreras más allá de las fronteras.\n\nHoy, a través de Frago Football Group, trabaja estrechamente con jugadores y familias para crear caminos reales hacia clubes profesionales, academias, becas y oportunidades universitarias en todo el mundo. La agencia se construye sobre una combinación de exposición internacional, orientación estratégica, mentoría honesta y un profundo conocimiento de la industria del fútbol moderno desde adentro.\n\nHabiendo experimentado personalmente las realidades del desarrollo futbolístico de élite, las transiciones internacionales y la toma de decisiones de carrera a una edad temprana, Malcom aporta una perspectiva única enfocada no solo en el talento, sino también en la disciplina, la mentalidad, el compromiso y el crecimiento a largo plazo.\n\nFrago Football Group fue creado con una visión clara: conectar a jugadores ambiciosos con oportunidades genuinas y ayudarlos a maximizar su potencial dentro y fuera del campo.",
         dual: {
           playerTitle: "El Jugador",
           playerSub: "Siente el césped.",
@@ -627,7 +627,7 @@ export const dict = {
       }
     },
     manifesto: {
-      section: "Sección 07 · Manifiesto",
+      section: "Sección 06 · Manifiesto",
       signed: "Firma",
       role: "Fundador · FFG-Scouting",
       where: "San José ↔ Madrid",
@@ -644,7 +644,7 @@ export const dict = {
       ]
     },
     contact: {
-      section: "Sección 08 · Reservas",
+      section: "Sección 07 · Reservas",
       title1: "Agenda tu",
       title2: "Athlete Path Assessment.",
       sub: "Escribe 'PATH' por Instagram, o abre una línea de WhatsApp abajo. Respondemos en menos de 48h.",
@@ -660,7 +660,7 @@ export const dict = {
       message: "Cuéntanos tu situación",
       transmit: "Solicitar Assessment",
       current: "Actualmente",
-      open: "Abierto a colaboraciones · 25/26",
+      open: "Abierto a colaboraciones",
       tagline: "Carreras reales. Decisiones inteligentes. Más allá del juego."
     },
     footer: {

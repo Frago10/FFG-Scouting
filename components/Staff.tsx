@@ -231,7 +231,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
                 {m.kicker}
               </span>
               <span className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted truncate hidden md:inline">
-                · FFG-Scouting · ACTIVE 25/26
+                · FFG-Scouting
               </span>
             </div>
             <button
@@ -264,7 +264,11 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
             <h3 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[0.9] tracking-tightest break-words">
               Malcom <span className="italic text-shimmer">Frago.</span>
             </h3>
-            <p className="text-cream/80 leading-relaxed max-w-2xl break-words">{m.intro}</p>
+            <div className="space-y-3 max-w-2xl">
+              {m.intro.split("\n\n").map((para, idx) => (
+                <p key={idx} className="text-cream/80 leading-relaxed break-words">{para}</p>
+              ))}
+            </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-ink-line border border-ink-line mt-2">
               {m.stats.map((s) => (
@@ -289,55 +293,6 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
                 Instagram · {m.social.ig}
                 <span>→</span>
               </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Dual identity */}
-        <div className="grid md:grid-cols-2 gap-px bg-ink-line border-b border-ink-line">
-          <div className="bg-ink-deep p-8 md:p-12 relative">
-            <span className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-ultrawide text-lime">
-              01 / PLAYER
-            </span>
-            <h4 className="font-serif text-4xl text-cream leading-tight">
-              {m.dual.playerTitle}
-            </h4>
-            <p className="mt-2 font-serif italic text-2xl text-lime">
-              {m.dual.playerSub}
-            </p>
-            <p className="mt-6 text-cream/75 leading-relaxed">
-              {m.dual.playerBody}
-            </p>
-            <div className="mt-6 grid grid-cols-1 gap-2 pt-4 border-t border-ink-line">
-              {m.dual.playerBullets.map((b) => (
-                <div key={b} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 bg-lime shrink-0" />
-                  <span className="text-cream/80 text-sm">{b}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-ink-deep p-8 md:p-12 relative">
-            <span className="absolute top-6 right-6 font-mono text-[10px] uppercase tracking-ultrawide text-gold">
-              02 / ADVISOR
-            </span>
-            <h4 className="font-serif text-4xl text-cream leading-tight">
-              {m.dual.scouterTitle}
-            </h4>
-            <p className="mt-2 font-serif italic text-2xl text-gold">
-              {m.dual.scouterSub}
-            </p>
-            <p className="mt-6 text-cream/75 leading-relaxed">
-              {m.dual.scouterBody}
-            </p>
-            <div className="mt-6 grid grid-cols-1 gap-2 pt-4 border-t border-ink-line">
-              {m.dual.scouterBullets.map((b) => (
-                <div key={b} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-1.5 w-1.5 bg-gold shrink-0" />
-                  <span className="text-cream/80 text-sm">{b}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>
