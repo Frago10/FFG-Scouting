@@ -197,10 +197,10 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
   const lineY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   const images = [
-    asset("/images/aspire.jpg"),
-    asset("/images/saprissa-training.jpg"),
+    asset("/images/sounders.jpg"),
+    asset("/images/saprissa-game.jpg"),
     asset("/images/usa-celebration.jpg"),
-    asset("/images/costa-rica.jpg"),
+    asset("/images/costa-rica-2.jpg"),
     asset("/images/spain.jpg")
   ];
 
@@ -361,16 +361,6 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
                         isRight ? "md:order-1 md:pr-12 md:text-right" : "md:pl-12"
                       }`}
                     >
-                      <div
-                        className={`flex items-center gap-3 mb-3 ${
-                          isRight ? "md:justify-end" : ""
-                        }`}
-                      >
-                        <span className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
-                          {c.year}
-                        </span>
-                        <span className="h-px w-8 bg-gold" />
-                      </div>
                       <h5 className="font-serif text-3xl md:text-5xl leading-[0.95] tracking-tightest">
                         {c.title}
                       </h5>
@@ -381,13 +371,6 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
                       >
                         {c.place} · {c.flag}
                       </div>
-                      <p
-                        className={`mt-4 text-cream/75 leading-relaxed max-w-md text-sm ${
-                          isRight ? "md:ml-auto" : ""
-                        }`}
-                      >
-                        {c.body}
-                      </p>
                     </div>
                   </motion.div>
                 );

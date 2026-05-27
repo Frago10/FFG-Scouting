@@ -11,7 +11,7 @@ type Status =
   | { kind: "error"; message: string };
 
 // Inbox where the form should land
-const RECIPIENT_EMAIL = "jeanpaulfrago10@gmail.com";
+const RECIPIENT_EMAIL = "malcomfrago15@gmail.com";
 
 export default function Contact() {
   const { t } = useLang();
@@ -47,13 +47,12 @@ export default function Contact() {
 
     // Build a mailto: link with the form contents pre-filled.
     // Opens the user's default email client, addressed to the inbox.
-    const subject = `FFG-Scouting · Assessment Request — ${name}`;
+    const subject = `New Booking`;
     const body =
       `Name: ${name}\n` +
       `Email: ${email}\n` +
       `Role: ${role || "—"}\n\n` +
-      `${message}\n\n` +
-      `— sent from ffg-scouting.com`;
+      `${message}`;
 
     const mailto = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(
       subject

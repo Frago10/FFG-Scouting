@@ -240,9 +240,9 @@ export const dict = {
         chapters: [
           {
             year: "2010–14",
-            place: "Aspire Academy",
-            flag: "🇶🇦",
-            coord: "25°N · 51°E",
+            place: "Seattle Sounders FC",
+            flag: "🇺🇸",
+            coord: "47°N · 122°W",
             title: "The Forge",
             body:
               "Selected for one of the world's most rigorous academies. Trained alongside top global U-15 prospects. Built a foundation that lives in the body forever: discipline, repetition, decision speed."
@@ -576,9 +576,9 @@ export const dict = {
         chapters: [
           {
             year: "2010–14",
-            place: "Aspire Academy",
-            flag: "🇶🇦",
-            coord: "25°N · 51°E",
+            place: "Seattle Sounders FC",
+            flag: "🇺🇸",
+            coord: "47°N · 122°W",
             title: "La Fragua",
             body:
               "Seleccionado para una de las academias más rigurosas del mundo. Entrenó junto a los mejores prospectos Sub-15 del planeta. Disciplina, repetición y velocidad de decisión metidas en el cuerpo para siempre."
