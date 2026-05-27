@@ -201,7 +201,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
     asset("/images/saprissa-game.jpg"),
     asset("/images/usa-celebration.jpg"),
     asset("/images/costa-rica-2.jpg"),
-    asset("/images/spain.jpg")
+    asset("/images/spain-night.jpg")
   ];
 
   return (
