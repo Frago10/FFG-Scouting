@@ -43,7 +43,7 @@ export default function WhoWeServe() {
                   {c.k}
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-ultrawide text-gold/70 text-right">
-                  {i === 0 ? "ATHLETE" : i === 1 ? "FAMILY" : i === 2 ? "GLOBAL" : "TRANSITION"}
+                  {t.ui.serveLabels[i]}
                 </span>
               </div>
               <div className="font-serif text-2xl md:text-3xl text-cream leading-tight mb-4 break-words">

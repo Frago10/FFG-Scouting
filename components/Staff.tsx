@@ -94,7 +94,7 @@ export default function Staff() {
               <div className="absolute top-5 left-5 right-5 flex items-center justify-between font-mono text-[10px] uppercase tracking-ultrawide text-ink-deep/70">
                 <span className="flex items-center gap-2">
                   <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-                  01 / FOUNDER
+                  01 / {t.ui.founderTag}
                 </span>
                 <span>{founder.locale}</span>
               </div>
@@ -123,7 +123,7 @@ export default function Staff() {
               </div>
               <div className="mt-auto pt-6 border-t border-ink-line flex flex-wrap items-center justify-between gap-3">
                 <span className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
-                  Click to expand full profile
+                  {t.ui.clickExpand}
                 </span>
                 <span className="inline-flex items-center gap-2 bg-lime text-ink-deep px-4 py-2 font-mono text-[10px] uppercase tracking-ultrawide group-hover:gap-3 transition-all whitespace-nowrap">
                   {t.staff.open} <span>→</span>
@@ -148,7 +148,7 @@ export default function Staff() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-deep via-ink-deep/40 to-transparent" />
                 <div className="absolute top-5 left-5 right-5 flex items-center justify-between font-mono text-[10px] uppercase tracking-ultrawide text-cream/80">
-                  <span>0{i + 2} / ADVISOR</span>
+                  <span>0{i + 2} / {t.ui.advisorTag}</span>
                   <span>{m.locale}</span>
                 </div>
               </div>
@@ -258,7 +258,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
             <div className="flex items-start gap-3">
               <span className="h-px w-8 md:w-12 bg-gold mt-2 shrink-0" />
               <span className="font-mono text-[10px] md:text-[11px] uppercase tracking-ultrawide text-gold break-words">
-                Founder · Active Pro Footballer · Lead Advisor
+                {t.ui.founderRoleFull}
               </span>
             </div>
             <h3 className="font-serif text-4xl sm:text-5xl md:text-7xl leading-[0.9] tracking-tightest break-words">
@@ -302,7 +302,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
           <div className="flex items-center gap-3 mb-10">
             <span className="h-px w-12 bg-gold" />
             <span className="font-mono text-[11px] uppercase tracking-ultrawide text-gold">
-              Trajectory · Five passports
+              {t.ui.trajectory}
             </span>
           </div>
 
@@ -351,7 +351,7 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
                           <span>{c.coord}</span>
                         </div>
                         <div className="absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-ultrawide text-gold">
-                          CH. 0{i + 1}
+                          {t.ui.chapterPrefix} 0{i + 1}
                         </div>
                       </div>
                     </div>
@@ -381,8 +381,8 @@ function MalcomModal({ onClose }: { onClose: () => void }) {
 
         {/* Footer of modal */}
         <div className="border-t border-ink-line px-6 md:px-12 py-8 flex flex-wrap items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
-          <span>END OF PROFILE</span>
-          <span>FFG-SCOUTING · CONFIDENTIAL</span>
+          <span>{t.ui.endProfile}</span>
+          <span>{t.ui.confidential}</span>
           <button
             onClick={onClose}
             className="text-cream hover:text-gold transition-colors"

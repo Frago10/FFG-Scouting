@@ -15,7 +15,7 @@ export default function Footer() {
               F<span className="italic text-gold">F</span>G
             </div>
             <div className="font-mono text-[11px] uppercase tracking-ultrawide text-gold mt-2">
-              FFG-Scouting · Athlete Career Advisory
+              {t.brand.long} · {t.ui.advisoryTag}
             </div>
             <p className="font-mono text-[11px] uppercase tracking-ultrawide text-cream-muted mt-4 max-w-xs">
               {t.footer.tagline}
@@ -38,11 +38,6 @@ export default function Footer() {
               <li>
                 <a href="#philosophy" className="hover:text-gold">
                   {t.nav.philosophy}
-                </a>
-              </li>
-              <li>
-                <a href="#process" className="hover:text-gold">
-                  {t.nav.process}
                 </a>
               </li>
               <li>
@@ -109,12 +104,12 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Founder IG → @_fragom11
+                  {t.ui.founderIG} → @_fragom11
                 </a>
               </li>
               <li>
                 <a className="hover:text-gold" href="#staff">
-                  Staff profiles →
+                  {t.ui.staffProfiles} →
                 </a>
               </li>
             </ul>

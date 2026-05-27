@@ -12,7 +12,7 @@ type Status =
 
 // Web3Forms access key — get yours free at https://web3forms.com/
 // Enter malcomfrago15@gmail.com → "Create Access Key" → paste the UUID here
-const W3F_KEY = "PASTE_YOUR_WEB3FORMS_KEY_HERE";
+const W3F_KEY = "9b0f339f-c193-454d-b727-edf40936efe7";
 
 export default function Contact() {
   const { t } = useLang();
@@ -39,7 +39,7 @@ export default function Contact() {
     const message = (data.message || "").trim();
 
     if (!name || !email || !message) {
-      setStatus({ kind: "error", message: "Name, email and message are required." });
+      setStatus({ kind: "error", message: t.form.required });
       return;
     }
 
@@ -67,10 +67,10 @@ export default function Contact() {
         setStatus({ kind: "success" });
         form.reset();
       } else {
-        setStatus({ kind: "error", message: json.message || "Something went wrong. Try WhatsApp." });
+        setStatus({ kind: "error", message: json.message || t.form.error });
       }
     } catch {
-      setStatus({ kind: "error", message: "Network error. Please try WhatsApp." });
+      setStatus({ kind: "error", message: t.form.network });
     }
   }
 
@@ -183,7 +183,7 @@ export default function Contact() {
                     className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted"
                   >
                     <span className="h-2 w-2 rounded-full bg-cream-muted animate-pulse" />
-                    Sending…
+                    {t.form.sending}
                   </motion.div>
                 )}
                 {status.kind === "success" && (
@@ -195,7 +195,7 @@ export default function Contact() {
                     className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-lime"
                   >
                     <span className="h-2 w-2 rounded-full bg-lime" />
-                    Message sent — we&apos;ll be in touch.
+                    {t.form.sent}
                   </motion.div>
                 )}
                 {status.kind === "error" && (

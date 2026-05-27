@@ -1,25 +1,17 @@
 "use client";
 
-const items = [
-  "BEYOND THE GAME",
-  "✦",
-  "GLOBAL ATHLETE CAREERS",
-  "✦",
-  "STRATEGY",
-  "✦",
-  "CLARITY",
-  "✦",
-  "EXECUTION",
-  "✦",
-  "NO FALSE PROMISES",
-  "✦",
-  "PATHWAYS, NOT TRANSFERS",
-  "✦",
-  "FFG-SCOUTING",
-  "✦"
-];
+import { useLang } from "@/lib/LanguageContext";
 
 export default function Ticker() {
+  const { t } = useLang();
+
+  // Interleave ticker items with the gold separator ✦
+  const items: string[] = [];
+  t.ticker.forEach((it) => {
+    items.push(it);
+    items.push("✦");
+  });
+
   return (
     <div className="relative overflow-hidden border-y border-ink-line bg-ink-soft py-4">
       <div className="flex whitespace-nowrap animate-ticker">

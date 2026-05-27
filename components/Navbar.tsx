@@ -43,7 +43,7 @@ export default function Navbar() {
               FFG-Scouting
             </span>
             <span className="font-mono text-[10px] uppercase tracking-ultrawide text-cream-muted">
-              Athlete Career Advisory
+              {t.ui.advisoryTag}
             </span>
           </div>
         </a>

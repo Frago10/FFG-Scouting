@@ -45,7 +45,7 @@ export default function Services() {
             >
               {s.best && (
                 <span className="absolute -top-[1px] right-4 bg-gold text-ink-deep px-3 py-1 font-mono text-[9px] uppercase tracking-ultrawide">
-                  RECOMMENDED
+                  {t.ui.recommended}
                 </span>
               )}
 

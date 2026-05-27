@@ -63,8 +63,8 @@ export const dict = {
           es: "No prometemos contratos — construimos caminos."
         },
         {
-          en: "No vendemos sueños: diseñamos procesos.",
-          es: "No vendemos sueños: diseñamos procesos."
+          en: "We don't sell dreams. We design processes.",
+          es: "No vendemos sueños. Diseñamos procesos."
         },
         {
           en: "Right decisions > fast decisions.",
@@ -334,6 +334,38 @@ export const dict = {
       rights: "© MMXXVI · FFG-Scouting. All rights reserved.",
       designed: "Designed in Madrid · Built in Costa Rica",
       version: "v3.2 · CONFIDENTIAL"
+    },
+    ui: {
+      advisoryTag: "Athlete Career Advisory",
+      founderTag: "FOUNDER",
+      advisorTag: "ADVISOR",
+      clickExpand: "Click to expand full profile",
+      founderRoleFull: "Founder · Active Pro Footballer · Lead Advisor",
+      trajectory: "Trajectory · Five passports",
+      chapterPrefix: "CH.",
+      endProfile: "END OF PROFILE",
+      confidential: "FFG-SCOUTING · CONFIDENTIAL",
+      recommended: "RECOMMENDED",
+      serveLabels: ["ATHLETE", "FAMILY", "GLOBAL", "TRANSITION"],
+      staffProfiles: "Staff profiles",
+      founderIG: "Founder IG"
+    },
+    ticker: [
+      "BEYOND THE GAME",
+      "GLOBAL ATHLETE CAREERS",
+      "STRATEGY",
+      "CLARITY",
+      "EXECUTION",
+      "NO FALSE PROMISES",
+      "PATHWAYS, NOT TRANSFERS",
+      "FFG-SCOUTING"
+    ],
+    form: {
+      required: "Name, email and message are required.",
+      sending: "Sending…",
+      sent: "Message sent — we'll be in touch.",
+      error: "Something went wrong. Try WhatsApp.",
+      network: "Network error. Please try WhatsApp."
     }
   },
 
@@ -671,6 +703,38 @@ export const dict = {
       rights: "© MMXXVI · FFG-Scouting. Todos los derechos reservados.",
       designed: "Diseñado en Madrid · Construido en Costa Rica",
       version: "v3.2 · CONFIDENCIAL"
+    },
+    ui: {
+      advisoryTag: "Consultoría de Carrera Deportiva",
+      founderTag: "FUNDADOR",
+      advisorTag: "ASESOR",
+      clickExpand: "Click para expandir el perfil completo",
+      founderRoleFull: "Fundador · Futbolista Pro Activo · Lead Advisor",
+      trajectory: "Trayectoria · Cinco pasaportes",
+      chapterPrefix: "CAP.",
+      endProfile: "FIN DEL PERFIL",
+      confidential: "FFG-SCOUTING · CONFIDENCIAL",
+      recommended: "RECOMENDADO",
+      serveLabels: ["ATLETA", "FAMILIA", "GLOBAL", "TRANSICIÓN"],
+      staffProfiles: "Perfiles del staff",
+      founderIG: "IG del fundador"
+    },
+    ticker: [
+      "MÁS ALLÁ DEL JUEGO",
+      "CARRERAS GLOBALES PARA ATLETAS",
+      "ESTRATEGIA",
+      "CLARIDAD",
+      "EJECUCIÓN",
+      "SIN PROMESAS FALSAS",
+      "CAMINOS, NO TRASPASOS",
+      "FFG-SCOUTING"
+    ],
+    form: {
+      required: "Nombre, email y mensaje son requeridos.",
+      sending: "Enviando…",
+      sent: "Mensaje enviado — te contactaremos pronto.",
+      error: "Algo salió mal. Prueba WhatsApp.",
+      network: "Error de red. Por favor usa WhatsApp."
     }
   }
 };
